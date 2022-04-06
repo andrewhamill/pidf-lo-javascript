@@ -84,7 +84,8 @@ export const getElementsByLocalName = (
       if (instanceOfElement(unsafeChild)) child = unsafeChild as Element;
       else continue;
 
-      if (child.localName === localName) result.push(child);
+      if (child.localName.toLowerCase() === localName.toLowerCase())
+        result.push(child);
 
       getElementsByLocalName(child, localName, result);
     }
