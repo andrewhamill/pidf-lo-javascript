@@ -121,7 +121,7 @@ export class Point extends Location {
   static fromXML = (node: Element, method: Model.LocationMethod | string): Point | undefined => {
     try {
       const pos = XMLCompat.getElementsByLocalName(node, 'pos')[0];
-      const posSplit = pos?.textContent?.split(' ');
+      const posSplit = pos?.textContent?.trim().split(' ');
 
       // must be at least of length 2 (lat and lon)
       if (!posSplit || posSplit.length < 2)
